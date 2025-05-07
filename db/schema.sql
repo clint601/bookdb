@@ -12,18 +12,9 @@ constraint pk_format primary key (format_id),
 
 
 
-create table qty (
-    qty_id tinyint unsigned auto_increment not null,
-    qty tinyint unsigned not null,
-    data_created timestamp default current_timestamp,
-    data_updated timestamp default current_timestamp on update current_timestamp,
-    constraint pk_qty primary key (qty_id),
-);
-
-
 create table genre (
     genre_id tinyint unsigned auto_increment not null,
-    genre varchar(20) unsigned not null,
+    genre varchar(60) unsigned not null,
     data_created timestamp default current_timestamp,
     data_updated timestamp default current_timestamp on update current_timestamp,
     constraint pk_genre primary key (genre_id),
@@ -61,6 +52,7 @@ create table book (
     rating enum('1', '2', '3', '4', '5') default '1',
     language enum ('english','japanense','korean') default 'english',
     num_pages smallint not null,
+    qty tinyint unsigned not null
     data_created timestamp default current_timestamp,
     data_updated timestamp default current_timestamp on update current_timestamp,
     constraint pk_book primary key (book_id),
